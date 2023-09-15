@@ -14,7 +14,16 @@ This **code chunk** loads the data set:
 
 ```{r}
 data("early_january_weather")
+
+num_rows = nrow(early_january_weather)
+num_col = ncol(early_january_weather)
+
+variable_contents = ls(early_january_weather)
+
+mean_temperature = mean(early_january_weather$temp)
+
 ```
+
 
 
 
