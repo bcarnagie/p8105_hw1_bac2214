@@ -27,4 +27,3 @@ mean_temperature = mean(early_january_weather$temp)
 ```
 
 
-
