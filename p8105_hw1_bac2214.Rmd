@@ -35,7 +35,9 @@ Make a scatterplot of temp (y) vs time_hour (x); color points using the humid va
 
 This code chunk will create the scatterplot.
 ```{r}
-
+library(ggplot2)
+question1_plot = ggplot(early_january_weather, aes(x = time_hour, y = temp)) + geom_point(color = 25)
+print(question1_plot)
 ```
 
 
