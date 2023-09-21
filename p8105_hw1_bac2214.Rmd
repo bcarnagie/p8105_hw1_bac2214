@@ -26,7 +26,16 @@ variable_contents = ls(early_january_weather)
 print(variable_contents)
 
 mean_temperature = mean(early_january_weather$temp)
+mean_temperature_rounded = round(mean_temperature, digits = 2)
 ```
 
-After running this code chunk, I see that the ""early_january_weather" contains **`r num_col`** columns and **`r num_rows`** rows. The dataset contains basic informations in regards to weather for the first `r max(early_january_weather$day)` days in January including but not limited to the humidity, temperature, and wind speed every hour.
+After running this code chunk, I see that the `r data("early_january_weather")` dataset contains **`r num_col`** columns and **`r num_rows`** rows. The dataset contains basic information in regards to weather for the first `r max(early_january_weather$day)` days in January including but not limited to the humidity, temperature, and wind speed every hour. According to this dataset, the first 15 days in January had an average temperature of `r mean_temperature_rounded` degrees Fahrenheit.
+
+Make a scatterplot of temp (y) vs time_hour (x); color points using the humid variable (adding color = ... inside of aes in your ggplot code should help). Describe patterns that are apparent in this plot.
+
+This code chunk will create the scatterplot.
+```{r}
+
+```
+
 
