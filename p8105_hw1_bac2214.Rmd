@@ -23,7 +23,10 @@ num_col = ncol(early_january_weather)
 
 variable_contents = ls(early_january_weather)
 
+print(variable_contents)
+
 mean_temperature = mean(early_january_weather$temp)
 ```
 
+After running this code chunk, I see that the ""early_january_weather" contains **`r num_col`** columns and **`r num_rows`** rows. The dataset contains basic informations in regards to weather for the first `r max(early_january_weather$day)` days in January including but not limited to the humidity, temperature, and wind speed every hour.
 
