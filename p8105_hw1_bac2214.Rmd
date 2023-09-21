@@ -34,10 +34,18 @@ After running this code chunk, I see that the `r data("early_january_weather")` 
 Make a scatterplot of temp (y) vs time_hour (x); color points using the humid variable (adding color = ... inside of aes in your ggplot code should help). Describe patterns that are apparent in this plot.
 
 This code chunk will create the scatterplot.
-```{r}
+
+```{r,echo = FALSE} 
 library(ggplot2)
-question1_plot = ggplot(early_january_weather, aes(x = time_hour, y = temp)) + geom_point(color = 25)
+```
+
+
+```{r}
+question1_plot = ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
+
 print(question1_plot)
 ```
+
+The plot seems to zig zag up and down from left to right, but I notice a gradual increase in temperature as the month of Januray progresses.
 
 
