@@ -68,11 +68,7 @@ hw_df <- tibble(
     levels = c("mild", "medium", "spicy")
   )
 )
-```
-
-Taking the means here:
-
-```{r}
+# Taking the means of each vector
 mean_rsamp <- hw_df %>% pull(rsamp) %>% mean()
 mean_log_vec <- hw_df %>% pull(log_vec) %>% mean()
 mean_char_vec <- hw_df %>% pull(char_vec) %>% mean()
@@ -80,18 +76,18 @@ mean_factor_vec <- hw_df %>% pull(factor_vec) %>% mean()
 
 ```
 
-When pulling the means for the 4 different types of variables in hw_df, I was able to get a mean of `r format(round(mean_rsamp, 2))` for the random samples and `r format(round(mean_log_vec, 2))` for the logical vector. However, I got a warning message when trying to take the mean of the character vector and factor vector (as you can see above).\
+When pulling the means for the 4 different types of variables in `hw_df`, I was able to get a mean of `r format(round(mean_rsamp, 2))` for the random samples and `r format(round(mean_log_vec, 2))` for the logical vector. However, I got a warning message when trying to take the mean of the character vector and factor vector (as you can see above).\
 
-This code chunk applies `r as.numeric()` to the logical, charcter, and factor variables. 
+This code chunk applies `as.numeric` to the logical, character, and factor variables. 
 ```{r}
 log_to_num = as.numeric(hw_df %>% pull(log_vec))
 char_to_num = as.numeric(hw_df %>% pull(char_vec))
 factor_to_num = as.numeric(hw_df %>% pull(factor_vec))
 ```
 
-* For the logical vectors, trues are coded as 1 and falses are coded as 0. 
+* For the logical vectors, `TRUE` are coded as 1 and `FALSE` are coded as 0. 
   * This makes sense why I am able to get a mean for the logical vector. 
-* For the character vectors, all off the values are NA since the characters are not numeric. 
+* For the character vectors, all off the values are `NA` since the characters are not numeric. 
   * This makes sense why I get a warning message while trying to calculate the mean.
 * For the factor vector, the factor levels are converted to the number associated with their level, but it may not have a meaningful interpretation (especially if the factors are nominal).
   * This makes sense why I get a warning message while trying to calculate the mean.
