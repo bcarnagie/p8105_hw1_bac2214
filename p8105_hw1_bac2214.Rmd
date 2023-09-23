@@ -5,9 +5,10 @@ date: "2023-09-15"
 output: github_document
 ---
 
-```{r, message = FALSE }
+```{r, echo=FALSE, message = FALSE }
 library(moderndive)
 library(tidyverse)
+library(ggplot2)
 ```
 
 # Problem 1 
@@ -34,23 +35,14 @@ After running this code chunk, I see that the `r data("early_january_weather")` 
 
 
 This code chunk will create the scatterplot.
-
-```{r,echo = FALSE} 
-library(ggplot2)
-```
-
-
-```{r}
+```{r, message=FALSE}
 question1_plot = ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
 
 print(question1_plot)
-```
 
-This code exports the project directory to my project directory.
-```{r saving plot, message=FALSE}
+# Exports the project directory to my project directory.
 ggsave("question1_plot.png", plot = question1_plot)
 ```
-
 
 The plot seems to zig zag up and down from left to right (which I expect correlates to a higher temperature during the daylight and a lower temperature during the night time), but I notice a gradual increase in temperature as the month of January progresses.The lowest temperature is just below 25 degrees while the highest temperature is slightly above 55 degrees.
 
