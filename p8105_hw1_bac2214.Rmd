@@ -51,6 +51,26 @@ ggsave("question1_plot.png", plot = question1_plot)
 ```
 
 
-The plot seems to zig zag up and down from left to right (which I expect correlates to a higher tempature during the daylinght and a lower temprature during the night time), but I notice a gradual increase in temperature as the month of January progresses.The lowest temperature is just below 25 degrees while the highest temperature is slightly above 55 degrees.
+The plot seems to zig zag up and down from left to right (which I expect correlates to a higher temperature during the daylight and a lower temperature during the night time), but I notice a gradual increase in temperature as the month of January progresses.The lowest temperature is just below 25 degrees while the highest temperature is slightly above 55 degrees.
 
+```{r, echo = FALSE, message = FALSE}
+library(tidyverse)
+```
+
+
+# Problem 2
+This code chunk creates the dataframe: 
+```{r df_create}
+
+hw_df = tibble(
+  rsamp = rnorm(10),
+  log_vec = rsamp > 0,
+  char_vec = c("apple", "banana", "cherry", "watermelon", "pineapple", "grape", "kiwi", "blueberry", "mango", "orange"),
+  factor_vec = factor(
+    rep(c("level_1", "level_2", "level_3"), length.out = 10),
+    levels = c("level_1", "level_2", "level_3")
+))
+
+hw_df
+```
 
