@@ -17,7 +17,7 @@ data("early_january_weather")
 ```
 
 This code chunk creates values for the questions asked in problem 1: 
-```{r}
+```{r variablef for weather table}
 num_rows = nrow(early_january_weather)
 num_col = ncol(early_january_weather)
 
@@ -46,31 +46,47 @@ print(question1_plot)
 ```
 
 This code exports the project directory to my project directory.
-```{r, message=FALSE}
+```{r saving plot, message=FALSE}
 ggsave("question1_plot.png", plot = question1_plot)
 ```
 
 
 The plot seems to zig zag up and down from left to right (which I expect correlates to a higher temperature during the daylight and a lower temperature during the night time), but I notice a gradual increase in temperature as the month of January progresses.The lowest temperature is just below 25 degrees while the highest temperature is slightly above 55 degrees.
 
-```{r, echo = FALSE, message = FALSE}
+```{r library loag, echo = FALSE, message = FALSE}
 library(tidyverse)
 ```
 
 
+
+
+
+
 # Problem 2
-This code chunk creates the dataframe: 
+This code chunk creates the data frame: 
 ```{r df_create}
 
-hw_df = tibble(
+hw_df <- tibble(
   rsamp = rnorm(10),
   log_vec = rsamp > 0,
   char_vec = c("apple", "banana", "cherry", "watermelon", "pineapple", "grape", "kiwi", "blueberry", "mango", "orange"),
   factor_vec = factor(
-    rep(c("level_1", "level_2", "level_3"), length.out = 10),
-    levels = c("level_1", "level_2", "level_3")
-))
-
-hw_df
+    rep(c("mild", "medium", "spicy"), length.out = 10),
+    levels = c("mild", "medium", "spicy")
+  )
+)
 ```
+
+
+Taking the means here:
+
+```{r}
+mean_rsamp <- hw_df %>% pull(rsamp) %>% mean()
+mean_log_vec <- hw_df %>% pull(log_vec) %>% mean()
+mean_char_vec <- hw_df %>% pull(char_vec) %>% mean()
+mean_factor_vec <- hw_df %>% pull(factor_vec) %>% mean()
+
+```
+
+When pulling the means for the 4 different types of variables in hw_df, I was able to get a mean of `r format(round(mean_rsamp, 2))` for the random samples and `r format(round(mean_log_vec, 2))` for the logical vector. However, I got a warning message when trying to take the mean of the chracter vector and factor vector.
 
